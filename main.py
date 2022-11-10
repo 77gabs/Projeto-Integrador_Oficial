@@ -67,6 +67,13 @@ def exporta_clientes():
   print(banco_clientes)
   clientes_cadastrados.to_excel('clientes.xlsx')
 
+  # Commit as mudanças:
+  conexao.commit()
+
+  # Fechar o banco de dados:
+  conexao.close()
+
+
 
 
 janela.mainloop()
