@@ -53,5 +53,20 @@ def cadastrar_cliente():
     entry_email.delete(0,"end")
     entry_telefone.delete(0,"end")
 
+def exporta_clientes():
+  conexao = sqlite3.connect('clientes.db')
+  c = conexao.cursor()
+
+  # Inserir dados na tabela:
+  c.execute("SELECT * FROM clientes")
+  clientes_cadastrados = c.fetchall()
+  # print(clientes_cadastrados)
+  clientes_cadastrados=DataFrame(clientes_cadastrados,columns=['nome','sobrenome','email','telefone'])
+  
+  banco_clientes=clientes_cadastrados.values.tolist()
+  print(banco_clientes)
+  clientes_cadastrados.to_excel('clientes.xlsx')
+
+
 
 janela.mainloop()
