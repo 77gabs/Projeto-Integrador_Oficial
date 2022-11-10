@@ -41,6 +41,17 @@ def cadastrar_cliente():
                   'telefone': entry_telefone.get()
               })
 
+# Commit as mudanças:
+    conexao.commit()
+
+    # Fechar o banco de dados:
+    conexao.close()
+
+    # #Apaga os valores das caixas de entrada
+    entry_nome.delete(0,"end")
+    entry_sobrenome.delete(0,"end")
+    entry_email.delete(0,"end")
+    entry_telefone.delete(0,"end")
 
 
 janela.mainloop()
