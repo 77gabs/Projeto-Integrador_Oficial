@@ -1,12 +1,18 @@
-import tkinter as tk
+from tkinter import *
+import sqlite3
+from pandas import *
 
-window = tk.Tk()
-window.title("Hello wold")
-window.geometry("300x300")
+# #Criando o Banco de Dados:
+conexao = sqlite3.connect('clientes.db')
+cor1 = '#B0C4DE'
+#arquivo = open('clientes.xlsx', '+a')
+# # Criando o cursor:
+c = conexao.cursor()
 
-hello = tk.Label(text="Hello world!")
-hello.pack()
-button = tk.Button(text="Click me!")
-button.pack()
-
-tk.mainloop()
+# # Criando a tabela:
+c.execute("""CREATE TABLE IF NOT EXISTS  clientes (
+     nome text,
+     sobrenome text,
+    email text,
+    telefone text
+     )""")
