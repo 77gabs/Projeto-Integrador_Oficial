@@ -73,7 +73,7 @@ def exporta_clientes():
   # Fechar o banco de dados:
   conexao.close()
 
-
+print()
 
 
 janela.mainloop()
